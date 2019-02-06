@@ -30,3 +30,57 @@ import java.awt.geom.Rectangle2D;
  * Remember that to insert a new line into a String,
  * use \n
  */
+ public class Triangle implements SmithShape{
+   private int xPos;
+   private int yPos;
+   private int width;
+   private int height;
+   private double angle;
+
+   public Triangle(int x, int y, int w, int h, double a){
+     xPos = x;
+     yPos = y;
+     width = w;
+     height = h;
+     angle = a;
+   }
+
+   public int getX(){
+     return xPos;
+   }
+
+   public int getY(){
+     return yPos;
+   }
+
+   public int getWidth(){
+     return width;
+   }
+
+   public int getHeight(){
+     return height;
+   }
+
+   public double getArea(){
+     double area = (0.5)* width * height;
+     return area;
+   }
+
+   public double getAngle(){
+     return angle;
+   }
+
+   public Rectangle2D toSquare(){
+     double side = Math.sqrt((0.5)*(this.width * this.height));
+     Rectangle2D r = new Rectangle2D.Double(xPos, yPos, side, side);
+     return r;
+   }
+
+   @Override
+   public String toString(){
+     String s = "Width: " + this.getWidth() + "\nHeight: " + this.getHeight() +
+								 "\nAngle: " + this.getAngle();
+     return s;
+   }
+
+ }
